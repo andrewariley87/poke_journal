@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+charizard:
+  name: Charizard
+  base_experience: 240
+  image_url: https://img.pokemondb.net/artwork/large/charizard.jpg
+  stats: > 
+    { "hp" => 78,
+      "speed" => 100,
+      "attack" => 84,
+      "defense" => 78,
+      "special_attack" => 109,
+      "special_defense" => 85 
+    }
+  types: "flying, fire"
+  weight: 905
+  height: 17

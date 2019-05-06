@@ -17,10 +17,14 @@ require 'net/http'
 
   # Create Pokemon
 
+  name = data['name']
+
+  puts "Creating #{name}"
+
   stats_data = data['stats']
 
   stats = {}.tap do |hsh|
-    stats_data.each { |stat| hsh[stat.dig('stat', 'name')] = stat['base_stat'] }
+    stats_data.each { |stat| hsh[stat.dig('stat', 'name').underscore] = stat['base_stat'] }
   end
 
   types_array = []
@@ -29,9 +33,9 @@ require 'net/http'
 
 
   Pokemon.create(
-    name: data['name'].titleize,
+    name: name.titleize,
     base_experience: data['base_experience'],
-    image_url: "https://img.pokemondb.net/artwork/large/#{data['name']}.jpg",
+    image_url: "https://img.pokemondb.net/artwork/large/#{name}.jpg",
     stats: stats,
     types: types,
     height: data['height'],
